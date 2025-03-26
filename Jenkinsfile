@@ -30,7 +30,11 @@ pipeline{
                 sh 'docker push jinkxdocker/todo-application:latest'
             }
         }
-
+        stage('Deploy with Docker Compose'){
+            steps{
+                sh 'docker compose up -d'
+            }
+         }
         stage('Verify Services'){
             steps{
                 sh 'docker ps'
